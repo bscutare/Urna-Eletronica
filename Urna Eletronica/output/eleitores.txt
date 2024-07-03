@@ -1,0 +1,10 @@
+Joao Batista;10001;N;S
+Larissa Martins;10002;N;S
+Felipe Azevedo;10003;N;S
+Carolina Duarte;10004;N;S
+Ricardo Gomes;10005;N;S
+Bruna Ribeiro;10006;N;S
+Vinicius Cardoso;10007;N;S
+Fernanda Teixeira;10008;F;S
+Thiago Barros;10009;A;S
+Camila Freitas;10010;N;N

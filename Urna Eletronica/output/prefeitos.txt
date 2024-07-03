@@ -1,0 +1,10 @@
+Bruno Branco;10;abc
+Karime Ramos;11;xyz
+Gabriel Costa;12;bsb
+Ana Clara Souza;13;aaa
+Rafael Santos;14;sol
+Beatriz Lima;15;abc
+Pedro Fernandes;16;xyz
+Julia Almeida;17;bsb
+Matheus Pereira;18;aaa
+Isabela Rodrigues;19;sol
