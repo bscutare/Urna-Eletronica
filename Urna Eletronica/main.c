@@ -104,7 +104,7 @@ void registroPartidos(partidos listaPartidos[]){
     strcpy(listaPartidos[4].sigla, "SOL"); // PARTIDO 50 -- SOL
 }
 
-void votacao(eleitor listaEleitor[], int votosVereador[], int votosPrefeito[], int *presentes) {
+void votacao(eleitor listaEleitor[], int votosVereador[], int votosPrefeito[], int *ponteiroPresentes) {
     int j = 0;
     int auxiliar; // VARIAVEL PARA O EMBARALHAMENTO DOS VOTOS
     int titulo; // VARIAVEL PARA AUTENTICAÇÃO DO ELEITOR
@@ -149,7 +149,7 @@ void votacao(eleitor listaEleitor[], int votosVereador[], int votosPrefeito[], i
                 votosPrefeito[j] = auxiliar;
             }
             j++;
-            (*presentes)++; // VARIAVEL DE PESSOAS PRESENTES NA VOTAÇÃO
+            (*ponteiroPresentes)++; // VARIAVEL DE PESSOAS PRESENTES NA VOTAÇÃO
 }}}
 
 void gravarVotosBinariosVereadores(int presentes, int votosVereador[]) {
@@ -267,12 +267,15 @@ void apuracaoVotosPrefeito(int apuracaoPrefeito[], int presentes, prefeito lista
 int main() {
     int select;
     int presentes = 0; // VARIAVEL PARA SABER O NUMERO DE ELEITORES PRESENTES NA VOTAÇÃO
+    int *ponteiroPresentes; // PONTEIRO PARA A VARIAVEL PRESENTES
     int dados = 0; // VARIAVEL PARA IDENTIFICAR SE OS DADOS DE ELEITORES, VEREADORES E PREFEITOS FORAM IMPORTADOS
     int vot = 0; // VARIAVEL PARA IDENTIFICAR SE A VOTAÇÃO TERMINOU
     int votosVereador[MAX];
     int votosPrefeito[MAX];
     int apuracaoVereador[MAX];
     int apuracaoPrefeito[MAX];
+
+    ponteiroPresentes = &presentes;
 
     do{
         system("cls");
@@ -297,7 +300,7 @@ int main() {
                 printf("A votacao esta encerrada \n");
             }
             else if(dados==1){
-                votacao(listaEleitor, votosVereador, votosPrefeito, &presentes); // FAZ A VOTAÇÃO DOS CANDIDATOS
+                votacao(listaEleitor, votosVereador, votosPrefeito, ponteiroPresentes); // FAZ A VOTAÇÃO DOS CANDIDATOS
                 gravarVotosBinariosVereadores(presentes, votosVereador); // GRAVA OS VOTOS EM VEREADORES NUM ARQUIVO BINARIO E APAGA OS VOTOS DA VARIAVEL
                 gravarVotosBinariosPrefeitos(presentes, votosPrefeito); // GRAVA OS VOTOS EM PREFEITOS NUM AQRUIVO BINARIO E APAGA OS VOTOS DA VARIAVEL
                 vot=1;
